@@ -2,6 +2,9 @@
 
 namespace Tests;
 
+use SMS;
+use Mockery as m;
+
 class ServiceProviderTest extends TestCase
 {
     public function testNullDriverSetup()
@@ -37,5 +40,18 @@ class ServiceProviderTest extends TestCase
         $client = $this->app->make('sms');
         $this->assertInstanceOf('Matthewbdaly\SMS\Client', $client);
         $this->assertEquals('Clockwork', $client->getDriver());
+    }
+
+    public function testFacade()
+    {
+        $msg = [
+            'to'      => '+44 01234 567890',
+            'content' => 'Just testing',
+        ];
+        $mock = m::mock('Matthewbdaly\SMS\Client');
+        $mock->shouldReceive('send')->with($msg)->once()->andReturn(true);
+        $this->app->instance('sms', $mock);
+        $this->assertInstanceOf('Matthewbdaly\SMS\Client', $this->app['sms']);
+        SMS::send($msg);
     }
 }
