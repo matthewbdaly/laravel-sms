@@ -1,7 +1,7 @@
 # laravel-sms
 [![Build Status](https://travis-ci.org/matthewbdaly/laravel-sms.svg?branch=master)](https://travis-ci.org/matthewbdaly/laravel-sms)
 
-SMS service provider for Laravel. Uses [SMS Client](https://github.com/matthewbdaly/sms-client) to enable sending SMS messages using the following drivers:
+SMS service provider for Laravel and Lumen. Uses [SMS Client](https://github.com/matthewbdaly/sms-client) to enable sending SMS messages using the following drivers:
 
 * `nexmo`
 * `clockwork`
@@ -11,8 +11,8 @@ Also has the following drivers for testing purposes:
 * `log`
 * `null`
 
-Installation
-------------
+Installation for Laravel
+------------------------
 
 This package is only intended for Laravel 5.5 and up. Install it with the following command:
 
@@ -34,6 +34,11 @@ NEXMO_API_KEY=foo
 NEXMO_API_SECRET=bar
 CLOCKWORK_API_KEY=baz
 ```
+
+Installation for Lumen
+----------------------
+
+The installation process with Lumen is identical to that for Laravel, although if you wish to use the facade you will need to uncomment the appropriate section of `bootstrap/app.php` as usual.
 
 Usage
 -----
