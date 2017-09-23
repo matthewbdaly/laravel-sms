@@ -4,6 +4,9 @@ namespace Matthewbdaly\LaravelSMS;
 
 use Illuminate\Support\Facades\Facade as BaseFacade;
 
+/**
+ * Facade for the SMS provider
+ */
 class Facade extends BaseFacade
 {
     /**

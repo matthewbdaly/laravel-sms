@@ -11,6 +11,9 @@ use Matthewbdaly\SMS\Drivers\Clockwork;
 use Matthewbdaly\SMS\Drivers\Nexmo;
 use Matthewbdaly\SMS\Client;
 
+/**
+ * Service provider for the SMS service
+ */
 class LaravelSMSProvider extends ServiceProvider
 {
     /**
