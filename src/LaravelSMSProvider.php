@@ -1,10 +1,15 @@
 <?php
 
-namespace App\Providers;
+namespace Matthewbdaly\LaravelSMS\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Matthewbdaly\SMS\Drivers\Null as NullDriver;
+use Matthewbdaly\SMS\Drivers\Log;
+use Matthewbdaly\SMS\Drivers\Clockwork;
+use Matthewbdaly\SMS\Drivers\Nexmo;
+use Matthewbdaly\SMS\Client;
 
-class LaravelSMS extends ServiceProvider
+class LaravelSMSProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
