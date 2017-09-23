@@ -1,6 +1,10 @@
 <?php
 
-class TestCase extends Orchestra\Testbench\TestCase
+namespace Tests;
+
+use Orchestra\Testbench\TestCase as BaseTestCase;
+
+class TestCase extends BaseTestCase
 {
 	protected function getPackageProviders($app)
 	{
