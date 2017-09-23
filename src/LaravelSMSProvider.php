@@ -39,6 +39,16 @@ class LaravelSMSProvider extends ServiceProvider
                         new GuzzleResponse
                     );
                     break;
+                case 'nexmo':
+                    $driver = new Nexmo(
+                        new GuzzleClient,
+                        new GuzzleResponse,
+                        [
+                            'api_key' => $config['api_key'],
+                            'api_secret' => $config['api_secret'],
+                        ]
+                    );
+                    break;
                 default:
                     $driver = new LogDriver(
                         $app['log']
