@@ -8,7 +8,7 @@ class TestCase extends BaseTestCase
 {
 	protected function getPackageProviders($app)
 	{
-		return ['Matthewbdaly\LaravelSMS\Providers\LaravelSMSProvider'];
+		return ['Matthewbdaly\LaravelSMS\LaravelSMSProvider'];
 	}
 
 	protected function getPackageAliases($app)

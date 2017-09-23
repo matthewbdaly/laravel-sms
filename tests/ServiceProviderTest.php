@@ -6,6 +6,6 @@ class ServiceProviderTest extends TestCase
 {
     public function testNullDriverSetup()
     {
-        eval(\Psy\Sh());
+        $this->app['config']->set('sms.driver', 'null');
     }
 }

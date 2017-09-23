@@ -1,6 +1,6 @@
 <?php
 
-namespace Matthewbdaly\LaravelSMS\Providers;
+namespace Matthewbdaly\LaravelSMS;
 
 use Illuminate\Support\ServiceProvider;
 use Matthewbdaly\SMS\Drivers\Null as NullDriver;
