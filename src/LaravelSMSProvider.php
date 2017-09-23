@@ -3,7 +3,9 @@
 namespace Matthewbdaly\LaravelSMS;
 
 use Illuminate\Support\ServiceProvider;
-use Matthewbdaly\SMS\Drivers\Null as NullDriver;
+use GuzzleHttp\Client as GuzzleClient;
+use GuzzleHttp\Psr7\Response as GuzzleResponse;
+use Matthewbdaly\SMS\Drivers\NullDriver;
 use Matthewbdaly\SMS\Drivers\Log;
 use Matthewbdaly\SMS\Drivers\Clockwork;
 use Matthewbdaly\SMS\Drivers\Nexmo;
@@ -29,7 +31,10 @@ class LaravelSMSProvider extends ServiceProvider
 	public function register()
 	{
 		$this->app->singleton('sms', function ($app) {
-			return new Client;
+            return new Client(new NullDriver(
+                new GuzzleClient,
+                new GuzzleResponse
+            ));
 		});
 	}
 }
