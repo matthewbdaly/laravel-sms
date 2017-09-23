@@ -33,8 +33,8 @@ class LaravelSMSProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('sms', function ($app) {
-            $config = $app['config']->get('sms');
-            switch ($config['default']) {
+            $config = $app['config'];
+            switch ($config['sms.default']) {
             case 'null':
                 $driver = new NullDriver(
                     new GuzzleClient,
