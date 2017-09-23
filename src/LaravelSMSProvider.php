@@ -31,10 +31,11 @@ class LaravelSMSProvider extends ServiceProvider
 	public function register()
 	{
 		$this->app->singleton('sms', function ($app) {
-            return new Client(new NullDriver(
+            $driver = new NullDriver(
                 new GuzzleClient,
                 new GuzzleResponse
-            ));
+            );
+            return new Client($driver);
 		});
 	}
 }
