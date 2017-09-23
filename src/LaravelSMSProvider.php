@@ -34,7 +34,7 @@ class LaravelSMSProvider extends ServiceProvider
     {
         $this->app->singleton('sms', function ($app) {
             $config = $app['config']->get('sms');
-            switch ($config['driver']) {
+            switch ($config['default']) {
             case 'null':
                 $driver = new NullDriver(
                     new GuzzleClient,
@@ -46,8 +46,8 @@ class LaravelSMSProvider extends ServiceProvider
                     new GuzzleClient,
                     new GuzzleResponse,
                     [
-                        'api_key' => $config['api_key'],
-                        'api_secret' => $config['api_secret'],
+                        'api_key' => $config['sms.drivers.nexmo.api_key'],
+                        'api_secret' => $config['sms.drivers.nexmo.api_secret'],
                     ]
                 );
                 break;
@@ -56,7 +56,7 @@ class LaravelSMSProvider extends ServiceProvider
                     new GuzzleClient,
                     new GuzzleResponse,
                     [
-                        'api_key' => $config['api_key'],
+                        'api_key' => $config['sms.drivers.clockwork.api_key'],
                     ]
                 );
                 break;
