@@ -29,4 +29,13 @@ class ServiceProviderTest extends TestCase
         $this->assertInstanceOf('Matthewbdaly\SMS\Client', $client);
         $this->assertEquals('Nexmo', $client->getDriver());
     }
+
+    public function testClockworkDriverSetup()
+    {
+        $this->app['config']->set('sms.driver', 'clockwork');
+        $this->app['config']->set('sms.api_key', 'MY_CLOCKWORK_API_KEY');
+        $client = $this->app->make('sms');
+        $this->assertInstanceOf('Matthewbdaly\SMS\Client', $client);
+        $this->assertEquals('Clockwork', $client->getDriver());
+    }
 }

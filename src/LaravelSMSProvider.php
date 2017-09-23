@@ -49,6 +49,15 @@ class LaravelSMSProvider extends ServiceProvider
                         ]
                     );
                     break;
+                case 'clockwork':
+                    $driver = new Clockwork(
+                        new GuzzleClient,
+                        new GuzzleResponse,
+                        [
+                            'api_key' => $config['api_key'],
+                        ]
+                    );
+                    break;
                 default:
                     $driver = new LogDriver(
                         $app['log']
