@@ -19,4 +19,14 @@ class ServiceProviderTest extends TestCase
         $this->assertInstanceOf('Matthewbdaly\SMS\Client', $client);
         $this->assertEquals('Log', $client->getDriver());
     }
+
+    public function testNexmoDriverSetup()
+    {
+        $this->app['config']->set('sms.driver', 'nexmo');
+        $this->app['config']->set('sms.api_key', 'MY_NEXMO_API_KEY');
+        $this->app['config']->set('sms.api_secret', 'MY_NEXMO_API_SECRET');
+        $client = $this->app->make('sms');
+        $this->assertInstanceOf('Matthewbdaly\SMS\Client', $client);
+        $this->assertEquals('Nexmo', $client->getDriver());
+    }
 }
