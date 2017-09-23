@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a1f84df94e3c43b74172a84908e195a",
+    "content-hash": "e121848b32852680ca052bad1d28fdbe",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -189,16 +189,16 @@
         },
         {
             "name": "matthewbdaly/sms-client",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/matthewbdaly/sms-client.git",
-                "reference": "d1076ef8da9c297a95cb64ba2f622c202ac63b41"
+                "reference": "cf524b7a6a115be1f6f7fb97d506f86c55ce4341"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/matthewbdaly/sms-client/zipball/d1076ef8da9c297a95cb64ba2f622c202ac63b41",
-                "reference": "d1076ef8da9c297a95cb64ba2f622c202ac63b41",
+                "url": "https://api.github.com/repos/matthewbdaly/sms-client/zipball/cf524b7a6a115be1f6f7fb97d506f86c55ce4341",
+                "reference": "cf524b7a6a115be1f6f7fb97d506f86c55ce4341",
                 "shasum": ""
             },
             "require": {
@@ -226,7 +226,7 @@
                 }
             ],
             "description": "A generic SMS client library. Supports multiple swappable drivers.",
-            "time": "2017-09-23T14:29:17+00:00"
+            "time": "2017-09-23T18:31:20+00:00"
         },
         {
             "name": "psr/http-message",
