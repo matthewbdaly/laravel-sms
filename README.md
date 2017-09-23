@@ -34,3 +34,42 @@ NEXMO_API_KEY=foo
 NEXMO_API_SECRET=bar
 CLOCKWORK_API_KEY=baz
 ```
+
+Usage
+-----
+
+Once the package is installed and configured, you can use the facade to send SMS messages:
+
+```php
+use SMS;
+
+$msg = [
+    'to'      => '+44 01234 567890',
+    'content' => 'Just testing',
+];
+SMS::send($msg);
+```
+
+Or fetch it from the app:
+
+```php
+$msg = [
+    'to'      => '+44 01234 567890',
+    'content' => 'Just testing',
+];
+$sms = app()['sms']
+$sms->send($msg);
+```
+
+Or resolve the interface `Matthewbdaly\SMS\Contracts\Client`:
+
+```php
+$msg = [
+    'to'      => '+44 01234 567890',
+    'content' => 'Just testing',
+];
+$sms = app()->make('Matthewbdaly\SMS\Contracts\Client');
+$sms->send($msg);
+```
+
+Here we use the `app()` helper, but you'll normally want to inject it into a constructor or method of another class.
