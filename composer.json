@@ -28,5 +28,15 @@
         "psr-4": {
             "Tests\\": "tests/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Matthewbdaly\\LaravelSMS\\LaravelSMSProvider"
+            ],
+            "aliases": {
+                "SMS": "Matthewbdaly\\LaravelSMS\\Facade"
+            }
+        }
     }
 }
