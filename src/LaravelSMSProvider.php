@@ -16,9 +16,9 @@ class LaravelSMSProvider extends ServiceProvider
     /**
      * Bootstrap the application services.
      *
-	 * @return void
-	 */
-	public function boot()
+     * @return void
+     */
+    public function boot()
     {
         $this->publishes([
             __DIR__.'/config.php' => config_path('sms.php'),
@@ -35,36 +35,36 @@ class LaravelSMSProvider extends ServiceProvider
         $this->app->singleton('sms', function ($app) {
             $config = $app['config'];
             switch ($config['sms.default']) {
-            case 'null':
-                $driver = new NullDriver(
-                    new GuzzleClient,
-                    new GuzzleResponse
-                );
-                break;
-            case 'nexmo':
-                $driver = new Nexmo(
-                    new GuzzleClient,
-                    new GuzzleResponse,
-                    [
+                case 'null':
+                    $driver = new NullDriver(
+                        new GuzzleClient,
+                        new GuzzleResponse
+                    );
+                    break;
+                case 'nexmo':
+                    $driver = new Nexmo(
+                        new GuzzleClient,
+                        new GuzzleResponse,
+                        [
                         'api_key' => $config['sms.drivers.nexmo.api_key'],
                         'api_secret' => $config['sms.drivers.nexmo.api_secret'],
-                    ]
-                );
-                break;
-            case 'clockwork':
-                $driver = new Clockwork(
-                    new GuzzleClient,
-                    new GuzzleResponse,
-                    [
+                        ]
+                    );
+                    break;
+                case 'clockwork':
+                    $driver = new Clockwork(
+                        new GuzzleClient,
+                        new GuzzleResponse,
+                        [
                         'api_key' => $config['sms.drivers.clockwork.api_key'],
-                    ]
-                );
-                break;
-            default:
-                $driver = new LogDriver(
-                    $app['log']
-                );
-                break;
+                        ]
+                    );
+                    break;
+                default:
+                    $driver = new LogDriver(
+                        $app['log']
+                    );
+                    break;
             }
             return new Client($driver);
         });
