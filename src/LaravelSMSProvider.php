@@ -68,5 +68,9 @@ class LaravelSMSProvider extends ServiceProvider
             }
             return new Client($driver);
         });
+
+        $this->app->bind('Matthewbdaly\SMS\Contracts\Client', function ($app) {
+            return $app['sms'];
+        });
     }
 }

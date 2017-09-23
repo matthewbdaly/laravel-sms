@@ -54,4 +54,11 @@ class ServiceProviderTest extends TestCase
         $this->assertInstanceOf('Matthewbdaly\SMS\Client', $this->app['sms']);
         SMS::send($msg);
     }
+
+    public function testInject()
+    {
+        $client = $this->app->make('Matthewbdaly\SMS\Contracts\Client');
+        $this->assertInstanceOf('Matthewbdaly\SMS\Contracts\Client', $client);
+        $this->assertInstanceOf('Matthewbdaly\SMS\Client', $client);
+    }
 }
