@@ -15,6 +15,13 @@ class ServiceProviderTest extends TestCase
         $this->assertEquals('Null', $client->getDriver());
     }
 
+    public function testDefaultDriverSetup()
+    {
+        $client = $this->app->make('sms');
+        $this->assertInstanceOf('Matthewbdaly\SMS\Client', $client);
+        $this->assertEquals('Log', $client->getDriver());
+    }
+
     public function testLogDriverSetup()
     {
         $this->app['config']->set('sms.default', 'log');
