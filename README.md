@@ -10,6 +10,7 @@ Also has the following drivers for testing purposes:
 
 * `log`
 * `null`
+* `requestbin`
 
 Installation for Laravel
 ------------------------
@@ -33,6 +34,7 @@ SMS_DRIVER=nexmo
 NEXMO_API_KEY=foo
 NEXMO_API_SECRET=bar
 CLOCKWORK_API_KEY=baz
+REQUESTBIN_PATH=foo
 ```
 
 Installation for Lumen
