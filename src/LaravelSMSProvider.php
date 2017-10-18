@@ -7,6 +7,7 @@ use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Psr7\Response as GuzzleResponse;
 use Matthewbdaly\SMS\Drivers\NullDriver;
 use Matthewbdaly\SMS\Drivers\Log as LogDriver;
+use Matthewbdaly\SMS\Drivers\RequestBin;
 use Matthewbdaly\SMS\Drivers\Clockwork;
 use Matthewbdaly\SMS\Drivers\Nexmo;
 use Matthewbdaly\SMS\Client;
@@ -60,6 +61,15 @@ class LaravelSMSProvider extends ServiceProvider
                         new GuzzleResponse,
                         [
                         'api_key' => $config['sms.drivers.clockwork.api_key'],
+                        ]
+                    );
+                    break;
+                case 'requestbin':
+                    $driver = new RequestBin(
+                        new GuzzleClient,
+                        new GuzzleResponse,
+                        [
+                        'path' => $config['sms.drivers.requestbin.path'],
                         ]
                     );
                     break;

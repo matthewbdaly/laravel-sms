@@ -49,6 +49,15 @@ class ServiceProviderTest extends TestCase
         $this->assertEquals('Clockwork', $client->getDriver());
     }
 
+    public function testRequestBinDriverSetup()
+    {
+        $this->app['config']->set('sms.default', 'requestbin');
+        $this->app['config']->set('sms.drivers.requestbin.path', 'REQUESTBIN_PATH');
+        $client = $this->app->make('sms');
+        $this->assertInstanceOf('Matthewbdaly\SMS\Client', $client);
+        $this->assertEquals('RequestBin', $client->getDriver());
+    }
+
     public function testFacade()
     {
         $msg = [

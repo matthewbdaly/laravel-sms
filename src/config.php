@@ -35,6 +35,10 @@ return [
             'driver' => 'log',
         ],
 
+        'requestbin' => [
+            'path' => env('REQUESTBIN_PATH', null),
+        ],
+
         'nexmo' => [
             'driver' => 'nexmo',
             'api_key' => env('NEXMO_API_KEY', null),
