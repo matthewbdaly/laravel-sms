@@ -58,6 +58,17 @@ class ServiceProviderTest extends TestCase
         $this->assertEquals('RequestBin', $client->getDriver());
     }
 
+    public function testAwsSnsDriverSetup()
+    {
+        $this->app['config']->set('sms.default', 'aws');
+        $this->app['config']->set('sms.drivers.aws.api_key', 'MY_AWS_SNS_API_KEY');
+        $this->app['config']->set('sms.drivers.aws.api_secret', 'MY_AWS_SNS_API_SECRET');
+        $this->app['config']->set('sms.drivers.aws.api_region', 'MY_AWS_SNS_API_REGION');
+        $client = $this->app->make('sms');
+        $this->assertInstanceOf('Matthewbdaly\SMS\Client', $client);
+        $this->assertEquals('Aws', $client->getDriver());
+    }
+
     public function testFacade()
     {
         $msg = [

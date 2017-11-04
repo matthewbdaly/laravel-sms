@@ -10,6 +10,7 @@ use Matthewbdaly\SMS\Drivers\Log as LogDriver;
 use Matthewbdaly\SMS\Drivers\RequestBin;
 use Matthewbdaly\SMS\Drivers\Clockwork;
 use Matthewbdaly\SMS\Drivers\Nexmo;
+use Matthewbdaly\SMS\Drivers\Aws;
 use Matthewbdaly\SMS\Client;
 
 /**
@@ -72,6 +73,13 @@ class LaravelSMSProvider extends ServiceProvider
                         'path' => $config['sms.drivers.requestbin.path'],
                         ]
                     );
+                    break;
+                case 'aws':
+                    $driver = new Aws([
+                        'api_key' => $config['sms.drivers.aws.api_key'],
+                        'api_secret' => $config['sms.drivers.aws.api_secret'],
+                        'api_region' => $config['sms.drivers.aws.api_region'],
+                    ]);
                     break;
                 default:
                     $driver = new LogDriver(

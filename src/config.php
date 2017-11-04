@@ -45,6 +45,13 @@ return [
             'api_secret' => env('NEXMO_API_secret', null),
         ],
 
+        'aws' => [
+            'driver' => 'aws',
+            'api_key' => env('AWS_SNS_API_KEY', null),
+            'api_secret' => env('AWS_SNS_API_SECRET', null),
+            'api_region' => env('AWS_SNS_API_REGION', null),
+        ],
+
         'null' => [
             'driver' => 'null',
         ],
