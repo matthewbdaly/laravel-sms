@@ -52,6 +52,10 @@ return [
             'api_region' => env('AWS_SNS_API_REGION', null),
         ],
 
+        'mail' => [
+            'domain' => env('MAIL_SMS_DOMAIN', null),
+        ],
+
         'null' => [
             'driver' => 'null',
         ],
