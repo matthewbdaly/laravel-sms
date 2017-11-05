@@ -39,6 +39,7 @@ REQUESTBIN_PATH=foo
 AWS_SNS_API_KEY=foo
 AWS_SNS_API_SECRET=bar
 AWS_SNS_API_REGION=baz
+MAIL_SMS_DOMAIN=my.sms-gateway.com
 ```
 
 Installation for Lumen
