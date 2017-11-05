@@ -11,6 +11,7 @@ use Matthewbdaly\SMS\Drivers\RequestBin;
 use Matthewbdaly\SMS\Drivers\Clockwork;
 use Matthewbdaly\SMS\Drivers\Nexmo;
 use Matthewbdaly\SMS\Drivers\Aws;
+use Matthewbdaly\SMS\Drivers\Mail as MailDriver;
 use Matthewbdaly\SMS\Client;
 
 /**
@@ -79,6 +80,11 @@ class LaravelSMSProvider extends ServiceProvider
                         'api_key' => $config['sms.drivers.aws.api_key'],
                         'api_secret' => $config['sms.drivers.aws.api_secret'],
                         'api_region' => $config['sms.drivers.aws.api_region'],
+                    ]);
+                    break;
+                case 'mail':
+                    $driver = new MailDriver(new MailAdapter, [
+                        'domain' => $config['sms.drivers.mail.domain'],
                     ]);
                     break;
                 default:

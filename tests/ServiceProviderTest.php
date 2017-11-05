@@ -69,6 +69,15 @@ class ServiceProviderTest extends TestCase
         $this->assertEquals('Aws', $client->getDriver());
     }
 
+    public function testMailDriverSetup()
+    {
+        $this->app['config']->set('sms.default', 'mail');
+        $this->app['config']->set('sms.drivers.mail.domain', 'my.sms-gateway.com');
+        $client = $this->app->make('sms');
+        $this->assertInstanceOf('Matthewbdaly\SMS\Client', $client);
+        $this->assertEquals('Mail', $client->getDriver());
+    }
+
     public function testFacade()
     {
         $msg = [
