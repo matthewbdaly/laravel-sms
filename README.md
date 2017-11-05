@@ -5,6 +5,7 @@ SMS service provider for Laravel and Lumen. Uses [SMS Client](https://github.com
 
 * `nexmo`
 * `clockwork`
+* `textlocal`
 * `aws` (requires installation of `aws/aws-sdk-php`)
 * `mail` (somewhat untested and may be too generic to be much use)
 
@@ -36,6 +37,7 @@ SMS_DRIVER=nexmo
 NEXMO_API_KEY=foo
 NEXMO_API_SECRET=bar
 CLOCKWORK_API_KEY=baz
+TEXTLOCAL_API_KEY=baz
 REQUESTBIN_PATH=foo
 AWS_SNS_API_KEY=foo
 AWS_SNS_API_SECRET=bar

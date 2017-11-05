@@ -10,6 +10,7 @@ use Matthewbdaly\SMS\Drivers\Log as LogDriver;
 use Matthewbdaly\SMS\Drivers\RequestBin;
 use Matthewbdaly\SMS\Drivers\Clockwork;
 use Matthewbdaly\SMS\Drivers\Nexmo;
+use Matthewbdaly\SMS\Drivers\TextLocal;
 use Matthewbdaly\SMS\Drivers\Aws;
 use Matthewbdaly\SMS\Drivers\Mail as MailDriver;
 use Matthewbdaly\SMS\Client;
@@ -63,6 +64,15 @@ class LaravelSMSProvider extends ServiceProvider
                         new GuzzleResponse,
                         [
                         'api_key' => $config['sms.drivers.clockwork.api_key'],
+                        ]
+                    );
+                    break;
+                case 'textlocal':
+                    $driver = new TextLocal(
+                        new GuzzleClient,
+                        new GuzzleResponse,
+                        [
+                        'api_key' => $config['sms.drivers.textlocal.api_key'],
                         ]
                     );
                     break;

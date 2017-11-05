@@ -31,6 +31,11 @@ return [
             'api_key' => env('CLOCKWORK_API_KEY', null),
         ],
 
+        'textlocal' => [
+            'driver' => 'textlocal',
+            'api_key' => env('TEXTLOCAL_API_KEY', null),
+        ],
+
         'log' => [
             'driver' => 'log',
         ],

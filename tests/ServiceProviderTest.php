@@ -49,6 +49,15 @@ class ServiceProviderTest extends TestCase
         $this->assertEquals('Clockwork', $client->getDriver());
     }
 
+    public function testTextLocalDriverSetup()
+    {
+        $this->app['config']->set('sms.default', 'textlocal');
+        $this->app['config']->set('sms.drivers.textlocal.api_key', 'MY_TEXTLOCAL_API_KEY');
+        $client = $this->app->make('sms');
+        $this->assertInstanceOf('Matthewbdaly\SMS\Client', $client);
+        $this->assertEquals('TextLocal', $client->getDriver());
+    }
+
     public function testRequestBinDriverSetup()
     {
         $this->app['config']->set('sms.default', 'requestbin');
