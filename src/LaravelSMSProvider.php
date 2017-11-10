@@ -12,6 +12,7 @@ use Matthewbdaly\SMS\Drivers\Clockwork;
 use Matthewbdaly\SMS\Drivers\Nexmo;
 use Matthewbdaly\SMS\Drivers\TextLocal;
 use Matthewbdaly\SMS\Drivers\Aws;
+use Matthewbdaly\SMS\Drivers\Twilio;
 use Matthewbdaly\SMS\Drivers\Mail as MailDriver;
 use Matthewbdaly\SMS\Client;
 
@@ -73,6 +74,16 @@ class LaravelSMSProvider extends ServiceProvider
                         new GuzzleResponse,
                         [
                         'api_key' => $config['sms.drivers.textlocal.api_key'],
+                        ]
+                    );
+                    break;
+                case 'twilio':
+                    $driver = new Twilio(
+                        new GuzzleClient,
+                        new GuzzleResponse,
+                        [
+                        'account_id' => $config['sms.drivers.twilio.account_id'],
+                        'api_token' => $config['sms.drivers.twilio.api_token'],
                         ]
                     );
                     break;

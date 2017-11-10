@@ -50,6 +50,12 @@ return [
             'api_secret' => env('NEXMO_API_secret', null),
         ],
 
+        'twilio' => [
+            'driver' => 'twilio',
+            'account_id' => env('TWILIO_ACCOUNT_ID', null),
+            'api_token' => env('TWILIO_API_TOKEN', null),
+        ],
+
         'aws' => [
             'driver' => 'aws',
             'api_key' => env('AWS_SNS_API_KEY', null),

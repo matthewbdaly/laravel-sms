@@ -78,6 +78,16 @@ class ServiceProviderTest extends TestCase
         $this->assertEquals('Aws', $client->getDriver());
     }
 
+    public function testTwilioDriverSetup()
+    {
+        $this->app['config']->set('sms.default', 'twilio');
+        $this->app['config']->set('sms.drivers.aws.account_id', 'MY_TWILIO_ACCOUNT_ID');
+        $this->app['config']->set('sms.drivers.aws.api_token', 'MY_TWILIO_API_TOKEN');
+        $client = $this->app->make('sms');
+        $this->assertInstanceOf('Matthewbdaly\SMS\Client', $client);
+        $this->assertEquals('Twilio', $client->getDriver());
+    }
+
     public function testMailDriverSetup()
     {
         $this->app['config']->set('sms.default', 'mail');
