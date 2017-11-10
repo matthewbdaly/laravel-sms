@@ -6,6 +6,7 @@ SMS service provider for Laravel and Lumen. Uses [SMS Client](https://github.com
 * `nexmo`
 * `clockwork`
 * `textlocal`
+* `twilio`
 * `aws` (requires installation of `aws/aws-sdk-php`)
 * `mail` (somewhat untested and may be too generic to be much use)
 
@@ -43,6 +44,8 @@ AWS_SNS_API_KEY=foo
 AWS_SNS_API_SECRET=bar
 AWS_SNS_API_REGION=baz
 MAIL_SMS_DOMAIN=my.sms-gateway.com
+TWILIO_ACCOUNT_ID=foo
+TWILIO_API_TOKEN=bar
 ```
 
 Installation for Lumen
